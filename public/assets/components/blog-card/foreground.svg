@@ -1,0 +1,10 @@
+<svg width="340" height="321" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="blogCardForegroundClip">
+      <path d="M2 11.3294L11.3457 2H338L338 287.989L302.778 318.501L9.57111 318.998L2 307.604V11.3294Z" fill="#282828"
+        stroke="#33FF00" stroke-width="1" />
+    </clipPath>
+  </defs>
+  <path d="M2 11.3294L11.3457 2H338L338 287.989L302.778 318.501L9.57111 318.998L2 307.604V11.3294Z" fill="#282828"
+    stroke="#33FF00" stroke-width="1" />
+</svg>

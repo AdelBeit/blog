@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:bold,wght@100-500");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@property --scrolled {
+  syntax: "<number>";
+  initial-value: 0;
+  inherits: false;
+}
+
+html {
+  height: 100%;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body,
+body > div:first-child,
+div#__next {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide_scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide_scroll {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+@keyframes grow-progress {
+  from {
+    transform: scaleX(0);
+    --scrolled: 0;
+  }
+  to {
+    transform: scaleX(1);
+    --scrolled: 101;
+  }
+}
+
+#progress {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 1em;
+
+  transform-origin: 0 50%;
+  animation: grow-progress auto linear;
+  background: rgb(255, 100, var(--scrolled));
+}
+
+#subcontainer ._content {
+  clip-path: url("#blogCardForegroundClip");
+  background-color: yellow;
+}
