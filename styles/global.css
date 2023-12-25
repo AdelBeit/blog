@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --cyber-black: #282828;
+  --cyber-green: #33FF00;
+  --cyber-amber: #FFB000;
+}
+
 @property --scrolled {
   syntax: "<number>";
   initial-value: 0;
@@ -62,9 +68,4 @@ div#__next {
   transform-origin: 0 50%;
   animation: grow-progress auto linear;
   background: rgb(255, 100, var(--scrolled));
-}
-
-#subcontainer ._content {
-  clip-path: url("#blogCardForegroundClip");
-  background-color: yellow;
 }

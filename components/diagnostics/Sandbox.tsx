@@ -1,49 +1,6 @@
 import { useEffect } from "react";
 ``
 const Sandbox = () => {
-  useEffect(() => {
-    const canvas = document.getElementById(
-      "drawingCanvas"
-    ) as HTMLCanvasElement;
-    const ctx = canvas.getContext("2d");
-
-    // Set canvas size
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    // Define the spawning area
-    const spawnArea = {
-      topRight: { x: canvas.width * 0.8, y: canvas.height * 0.2 },
-      bottomLeft: { x: canvas.width * 0.2, y: canvas.height * 0.8 },
-    };
-
-    function getRandomInt(min, max) {
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
-    function spawnRandomLine() {
-      const lineWidth = getRandomInt(5, 20);
-      const lineHeight = 5;
-
-      const startX = getRandomInt(spawnArea.bottomLeft.x, spawnArea.topRight.x);
-      const startY = getRandomInt(spawnArea.topRight.y, spawnArea.bottomLeft.y);
-
-      const endX = getRandomInt(spawnArea.bottomLeft.x, spawnArea.topRight.x);
-      const endY = getRandomInt(spawnArea.topRight.y, spawnArea.bottomLeft.y);
-
-      ctx.beginPath();
-      ctx.lineWidth = lineWidth;
-      ctx.moveTo(startX, startY);
-      ctx.lineTo(endX, endY);
-      ctx.stroke();
-    }
-
-    // Spawn 50 random lines
-    for (let i = 0; i < 50; i++) {
-      spawnRandomLine();
-    }
-  }, []);
-  return <canvas id="drawingCanvas"></canvas>;
   return (
     <div className="relative w-full h-full" id="sandbox_container">
       <div className="absolute w-full h-full z-[2]">

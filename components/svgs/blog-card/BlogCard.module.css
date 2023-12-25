@@ -1,0 +1,101 @@
+.subcontainer {
+  --border-width: 2px;
+  --mr: 2%;
+  --clip-path-point-1: 100% 0;
+  --clip-path-point-2: 100% calc(100% - 40px);
+  --clip-path-point-3: calc(100% - 40px) 100%;
+  --clip-path-point-4: 20px 100%;
+  --clip-path-point-5: 0 calc(100% - 25px);
+  --clip-path-point-6: 0 15px;
+  --clip-path-point-7: 15px 0;
+
+  --drop-shadow-offset-x: 15px;
+  --drop-shadow-offset-y: 10px;
+
+  padding-right: clamp(20px, 5%, 10px);
+  padding-right: 1px;
+}
+
+.content {
+  margin-right: var(--mr, 2%);
+}
+
+.card_graphic {
+  clip-path: polygon(
+    var(--clip-path-point-1, 100% 0),
+    var(--clip-path-point-2, 100% calc(100% - 40px)),
+    var(--clip-path-point-3, calc(100% - 40px) 100%),
+    var(--clip-path-point-4, 20px 100%),
+    var(--clip-path-point-5, 0 calc(100% - 25px)),
+    var(--clip-path-point-6, 0 15px),
+    var(--clip-path-point-7, 15px 0)
+  );
+}
+
+.card_graphic_wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(
+      calc(-1 * var(--border-width, 2px)) 0 0 var(--cyber-green, lime)
+    )
+    drop-shadow(
+      0 calc(-1 * var(--border-width, 2px)) 0 var(--cyber-green, lime)
+    )
+    drop-shadow(var(--border-width, 2px) 0 0 var(--cyber-green, lime))
+    drop-shadow(0 var(--border-width, 2px) 0 var(--cyber-green, lime))
+    drop-shadow(
+      var(--drop-shadow-offset-x, 15px) var(--drop-shadow-offset-y, 10px) 0
+        var(--cyber-green, lime)
+    );
+}
+
+@media (max-width: 1800px) {
+  .subcontainer {
+    --mr: 2%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .subcontainer {
+    --clip-path-point-1: 100% 0;
+    --clip-path-point-2: 100% calc(100% - 20px);
+    --clip-path-point-3: calc(100% - 20px) 100%;
+    --clip-path-point-4: 10px 100%;
+    --clip-path-point-5: 0 calc(100% - 10px);
+    --clip-path-point-6: 0 5px;
+    --clip-path-point-7: 5px 0;
+    --drop-shadow-offset-x: 10px;
+    --drop-shadow-offset-y: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .subcontainer {
+    --clip-path-point-1: 100% 0;
+    --clip-path-point-2: 100% calc(100% - 20px);
+    --clip-path-point-3: calc(100% - 20px) 100%;
+    --clip-path-point-4: 10px 100%;
+    --clip-path-point-5: 0 calc(100% - 10px);
+    --clip-path-point-6: 0 5px;
+    --clip-path-point-7: 5px 0;
+    --border-width: 1px;
+    --mr:3%;
+  }
+}
+
+@media (max-width: 640px) {
+  .subcontainer {
+    --drop-shadow-offset-x: 5px;
+    --drop-shadow-offset-y: 2px;
+  }
+}
+
+@media (max-width: 425px) {
+  .subcontainer {
+    --mr:5%;
+  }
+}

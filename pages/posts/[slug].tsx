@@ -17,7 +17,6 @@ import {
   ChangeEvent,
   useCallback,
   useEffect,
-  useMemo,
   useRef,
   useState,
 } from "react";
@@ -45,12 +44,12 @@ export default function Post({ post, morePosts, preview }: Props) {
   const [readProgress, setReadProgress] = useState(0);
   const TOTAL_READ_BLOCKS = 50;
 
-  const enableScroll = useMemo(
-    () => (node: HTMLElement) => (node.style.overflowY = "scroll"),
+  const enableScroll = useCallback(
+    (node: HTMLElement) => (node.style.overflowY = "scroll"),
     []
   );
-  const disableScroll = useMemo(
-    () => (node: HTMLElement) => (node.style.overflowY = "hidden"),
+  const disableScroll = useCallback(
+    (node: HTMLElement) => (node.style.overflowY = "hidden"),
     []
   );
   const handleScroll = (e: MouseEvent) => {
@@ -90,17 +89,17 @@ export default function Post({ post, morePosts, preview }: Props) {
     pageNode.addEventListener("scroll", handleScroll);
     return () => pageNode.removeEventListener("scroll", handleScroll);
   }, [pageNode]);
+  // return (
+  //   <div
+  //     className="relative text-cyber-green w-full h-full bg-cyber-black p-10 overflow-y-scroll hide_scroll"
+  //     id="page_container"
+  //   >
+  //     <Sandbox />
+  //   </div>
+  // );
   return (
     <div
-      className="relative text-cyber-green w-full h-full bg-cyber-black p-10 overflow-y-scroll hide_scroll"
-      id="page_container"
-    >
-      <Sandbox />
-    </div>
-  );
-  return (
-    <div
-      className="relative text-cyber-green w-full h-full bg-cyber-black p-10 overflow-y-scroll hide_scroll"
+      className="relative text-cyber-green w-full h-full bg-cyber-black p-[10px] sm:pr-[30px] pr-[15px] overflow-y-scroll hide_scroll"
       id="page_container"
     >
       <BlogCard
@@ -109,7 +108,7 @@ export default function Post({ post, morePosts, preview }: Props) {
         ref={cardRef}
       >
         <>
-          <div className="fixed top-50 w-fit z-[11]" id="progress"></div>
+          <div className="invisible fixed top-50 w-fit z-[11]" id="progress"></div>
           <PostHeader
             title={post.title}
             coverImage={post.coverImage}
