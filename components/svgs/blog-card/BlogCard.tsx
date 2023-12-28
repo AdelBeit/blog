@@ -1,34 +1,40 @@
 import { ReactNode, forwardRef } from "react";
-import Backdrop from "./Backdrop";
-import Foreground from "./Foreground";
 import PostBody from "../../post-body";
 import ProgressBlock from "./ProgressBlock";
 import styles from "./BlogCard.module.css";
 import cs from "classnames";
+import BlogCardFrame from "./BlogCardFrame";
 
 type Props = {
-  content?: ReactNode;
+  preview?: boolean;
   activeBlocks: number;
   totalBLocks: number;
   children?: ReactNode;
 };
 
 const BlogCard = forwardRef<HTMLDivElement, Props>(
-  ({ content, activeBlocks, totalBLocks, children }, ref) => {
+  ({ preview = false, activeBlocks, totalBLocks, children }, ref) => {
     return (
       <div
-        className={cs(styles['subcontainer'],"relative w-full h-full mb-[30px]")}
+        className={cs(
+          styles["subcontainer"],
+          "relative w-full h-full mb-[30px]"
+        )}
         id="subcontainer"
       >
-        <div className={cs("z-[2] lg:pb-[10px] sm:pb-0", styles["card_graphic_wrapper"])}>
-          <div
-            className={cs(
-              "w-full h-full bg-cyber-black",
-              styles["card_graphic"]
-            )}
-          ></div>
-        </div>
-        <div className={cs(styles['content'],"absolute flex flex-col-reverse left-0 right-0 z-[5] h-full pt-[10px] lg:pb-[20px] pb-[8px] mx-[2%] gap-[10px] md:gap-[20px]")}>
+        <BlogCardFrame
+          outerClasses={cs(
+            "z-[2] lg:pb-[10px] sm:pb-0",
+            styles["card_graphic_wrapper"]
+          )}
+          innerClasses={cs(styles["card_graphic"])}
+        />
+        <div
+          className={cs(
+            styles["content"],
+            "absolute flex flex-col-reverse left-0 right-0 z-[5] h-full pt-[10px] lg:pb-[20px] pb-[8px] mx-[2%] gap-[10px] md:gap-[20px]"
+          )}
+        >
           <div
             id="progress_container"
             className="relative flex flex-row items-center z-[10]"

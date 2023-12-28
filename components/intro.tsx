@@ -17,7 +17,7 @@ const Intro = () => {
   });
   return (
     <section className="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-16 md:mb-12">
-      <div className="scroll-tracker flex fixed gap-[50px] bg-white p-4 border-2">
+      {/* <div className="scroll-tracker flex fixed gap-[50px] bg-white p-4 border-2">
         {progress}
         <div className="scroll-tracker-block w-[20px] h-[20px] bg-orange-300"></div>
         <div
@@ -35,7 +35,7 @@ const Intro = () => {
             (progress > 3 ? "bg" : "border-2 border") + "-" + scrollTrackerColor
           }`}
         ></div>
-      </div>
+      </div> */}
       <h1 className="text-5xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">
         Blog.
       </h1>
