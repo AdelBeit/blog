@@ -1,22 +1,16 @@
-.subcontainer {
+.container {
   --border-width: 2px;
   --mr: 2%;
   --clip-path-point-1: 100% 0;
-  --clip-path-point-2: 100% calc(100% - 40px);
-  --clip-path-point-3: calc(100% - 40px) 100%;
-  --clip-path-point-4: 0px 100%;
-  --clip-path-point-5: 0 0;
+  --clip-path-point-2: 100% calc(100% - 15px);
+  --clip-path-point-3: calc(100% - 15px) 100%;
+  --clip-path-point-4: 8px 100%;
+  --clip-path-point-5: 0 calc(100% - 8px);
+  --clip-path-point-6: 0 0;
+  --clip-path-point-7: 0 0;
 
-  --drop-shadow-offset-x: 0px;
-  --drop-shadow-offset-y: 0px;
-
-  padding-right: clamp(20px, 5%, 10px);
-  padding-right: 1px;
-}
-
-.subcontainer:hover{
-  --drop-shadow-offset-x: 15px;
-  --drop-shadow-offset-y: 10px;
+  --drop-shadow-offset-x: 8px;
+  --drop-shadow-offset-y: 5px;
 }
 
 .content {
@@ -25,68 +19,79 @@
 
 .card_graphic {
   clip-path: polygon(
-    var(--clip-path-point-1, 100% 0),
-    var(--clip-path-point-2, 100% calc(100% - 40px)),
-    var(--clip-path-point-3, calc(100% - 40px) 100%),
-    var(--clip-path-point-4, 0px 100%),
-    var(--clip-path-point-5, 0 0)
+      var(--clip-path-point-1),
+    var(--clip-path-point-2),
+    var(--clip-path-point-3),
+    var(--clip-path-point-4),
+    var(--clip-path-point-5),
+    var(--clip-path-point-6),
+    var(--clip-path-point-7)
   );
 }
 
 .card_graphic_wrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(calc(-50% + (-0.25 * var(--drop-shadow-offset-x))), calc(-50% + (-0.25 * var(--drop-shadow-offset-y))));
-  width: 100%;
-  height: 100%;
-  filter: drop-shadow(
-      calc(-1 * var(--border-width, 2px)) 0 0 var(--cyber-green, lime)
-    )
+  filter: drop-shadow(calc(-1 * var(--border-width)) 0 0 var(--cyber-green))
+    drop-shadow(0 calc(-1 * var(--border-width)) 0 var(--cyber-green))
+    drop-shadow(var(--border-width) 0 0 var(--cyber-green))
+    drop-shadow(0 var(--border-width) 0 var(--cyber-green))
     drop-shadow(
-      0 calc(-1 * var(--border-width, 2px)) 0 var(--cyber-green, lime)
-    )
-    drop-shadow(var(--border-width, 2px) 0 0 var(--cyber-green, lime))
-    drop-shadow(0 var(--border-width, 2px) 0 var(--cyber-green, lime))
-    drop-shadow(
-      var(--drop-shadow-offset-x, 15px) var(--drop-shadow-offset-y, 10px) 0
-        var(--cyber-green, lime)
+      var(--drop-shadow-offset-x) var(--drop-shadow-offset-y) 0
+        var(--cyber-green)
     );
-    transition:filter 150ms ease-in-out, transform 150ms ease-in-out;
+  transition: filter 150ms ease-in-out, transform 150ms ease-in-out;
 }
 
 @media (max-width: 1800px) {
-  .subcontainer {
+  .container {
     --mr: 2%;
   }
 }
 
 @media (max-width: 1024px) {
-  .subcontainer {
-    --clip-path-point-2: 100% calc(100% - 20px);
-    --clip-path-point-3: calc(100% - 20px) 100%;
-    --clip-path-point-4: 10px 100%;
+  .container {
+    --clip-path-point-2: 100% calc(100% - 10px);
+    --clip-path-point-3: calc(100% - 10px) 100%;
+    --clip-path-point-4: 5px 100%;
+    --clip-path-point-5: 0 calc(100% - 5px);
     --drop-shadow-offset-x: 10px;
     --drop-shadow-offset-y: 5px;
   }
 }
 
 @media (max-width: 768px) {
-  .subcontainer {
+  .container {
     --border-width: 1px;
     --mr: 3%;
   }
 }
 
 @media (max-width: 640px) {
-  .subcontainer {
+  .container {
     --drop-shadow-offset-x: 5px;
     --drop-shadow-offset-y: 2px;
   }
 }
 
 @media (max-width: 425px) {
-  .subcontainer {
+  .container {
     --mr: 5%;
+  }
+}
+
+@media (pointer: fine), (pointer: none) {
+  .container {
+    --drop-shadow-offset-x: 0px;
+    --drop-shadow-offset-y: 0px;
+  }
+  .container:hover {
+    --drop-shadow-offset-x: 8px;
+    --drop-shadow-offset-y: 5px;
+  }
+
+  .card_graphic_wrapper {
+    transform: translate(
+      calc(-0.25 * var(--drop-shadow-offset-x)),
+      calc(-0.25 * var(--drop-shadow-offset-y))
+    );
   }
 }

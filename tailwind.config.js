@@ -41,6 +41,9 @@ module.exports = {
       backgroundSize:{
         full: "100% 100%",
       },
+      translate:{
+        '1/2': "-50%"
+      }
     },
   },
   plugins: [],

@@ -3,8 +3,8 @@ import { GITHUB_PATH } from "../lib/constants";
 
 const Footer = () => {
   return (
-    <footer className="border-t">
-      <p>footer</p>
+    <footer className="bg-cyber-black text-cyber-green pt-10">
+      <hr/>
       <Container>
         <div className="py-28 flex flex-col lg:flex-row items-center">
           <h3 className="text-4xl lg:text-[2.5rem] font-bold tracking-tighter leading-tight text-center lg:text-left mb-10 lg:mb-0 lg:pr-4 lg:w-1/2">

@@ -1,17 +1,13 @@
-import cs from 'classnames';
+import cs from "classnames";
 
 type Props = {
-  innerClasses?:string;
-  outerClasses?:string;
-}
+  innerClasses?: string;
+  outerClasses?: string;
+};
 
-const BlogCardFrame = ({innerClasses="",outerClasses="" }: Props) => (
-  <div
-    className={outerClasses}
-  >
-    <div
-      className={cs("w-full h-full bg-cyber-black", innerClasses)}
-    ></div>
+const BlogCardFrame = ({ innerClasses = "", outerClasses = "" }: Props) => (
+  <div className={cs("absolute inset-0", outerClasses)}>
+    <div className={cs("absolute inset-0 bg-cyber-black", innerClasses)}></div>
   </div>
 );
 

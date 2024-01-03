@@ -6,6 +6,7 @@ import type Author from "../interfaces/author";
 import BlogCardFrame from "./svgs/blog-card/BlogCardFrame";
 import styles from "./PostPreview.module.css";
 import cs from "classnames";
+import { useCallback, useEffect, useRef } from "react";
 
 type Props = {
   title: string;
@@ -25,27 +26,31 @@ const PostPreview = ({
   slug,
 }: Props) => {
   return (
-    <div className={cs("relative w-full h-full", styles["subcontainer"])}>
-      <BlogCardFrame
-        outerClasses={cs("z-[2]", styles["card_graphic_wrapper"])}
-        innerClasses={cs("", styles["card_graphic"])}
-      />
-      <div className={styles["content"]}>
-        <h3 className="text-3xl mb-3 leading-snug">
-          <Link
-            as={`/posts/${slug}`}
-            href="/posts/[slug]"
-            className="hover:underline"
-          >
-            {title}
-          </Link>
-        </h3>
-        <div className="text-lg mb-4">
-          <DateFormatter dateString={date} />
+    <div
+      className={cs(
+        "relative w-full whitespace-nowrap hover:[white-space:wrap]",
+        styles["container"]
+      )}
+    >
+      <Link as={`/posts/${slug}`} href="/posts/[slug]">
+        <BlogCardFrame
+          outerClasses={cs("z-[2]", styles["card_graphic_wrapper"])}
+          innerClasses={cs("", styles["card_graphic"])}
+        />
+        <div
+          className={cs(
+            "relative z-[5] min-w-fit overflow-x-hidden p-2 grid grid-rows-[1fr max-content] gap-y-4 grid-cols-1"
+          )}
+        >
+          <span className={cs("text-xl leading-tight inline-block")}>
+            {title} lorem ipsum hellow workdlorem ipsum hellow workdlorem ipsum
+            hellow workdlorem ipsum hellow workd
+          </span>
+          <span className="place-self-end pr-2">
+            <DateFormatter dateString={date} />
+          </span>
         </div>
-        <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-        <Avatar name={author.name} picture={author.picture} />
-      </div>
+      </Link>
     </div>
   );
 };

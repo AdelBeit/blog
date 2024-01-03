@@ -21,7 +21,7 @@ export default function Index({ allPosts }: Props) {
         <Head>
           <title>{`Next.js Blog Example with ${CMS_NAME}`}</title>
         </Head>
-        <Container>
+        <Container classes={"relative w-full"}>
           <Intro />
           {heroPost && (
             <HeroPost
