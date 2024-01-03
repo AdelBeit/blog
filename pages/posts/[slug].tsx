@@ -13,7 +13,7 @@ import markdownToHtml from "../../lib/markdownToHtml";
 import type PostType from "../../interfaces/post";
 import isVisible from "../../lib/isVisible";
 import { useCallback, useEffect, useState } from "react";
-import BlogCard from "../../components/svgs/blog-card/BlogCard";
+import BlogCard from "../../components/blog-card/BlogCard";
 
 type Props = {
   post: PostType;
@@ -29,12 +29,12 @@ export default function Post({ post, morePosts, preview }: Props) {
   }
 
   return (
-    <div
-      className="relative text-cyber-green w-full h-full bg-cyber-black p-[10px] sm:pr-[30px] pr-[15px] overflow-y-scroll hide_scroll"
-      id="page_container"
-    >
-      <BlogCard showProgress={true}>
-        <>
+    <Layout>
+      <div
+        className="relative text-cyber-green w-full h-full bg-cyber-black p-[10px] sm:pr-[30px] pr-[15px] overflow-y-scroll hide_scroll"
+        id="page_container"
+      >
+        <BlogCard showProgress={true}>
           <PostHeader
             title={post.title}
             coverImage={post.coverImage}
@@ -42,9 +42,9 @@ export default function Post({ post, morePosts, preview }: Props) {
             author={post.author}
           />
           <PostBody content={post.content} />
-        </>
-      </BlogCard>
-    </div>
+        </BlogCard>
+      </div>
+    </Layout>
   );
 }
 

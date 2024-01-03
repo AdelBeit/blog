@@ -1,11 +1,11 @@
-import { COLORS } from "../../../lib/constants";
-import { SVGProps } from "../types";
+import { COLORS } from "../../lib/constants";
+import { SVGProps } from "./types";
 type Props = Omit<SVGProps, "height"> & {
   active?: boolean;
   index?: number;
 };
 
-const ProgressBlock = ({ active = true, width="100%", index = 0 }: Props) => {
+const ProgressBlock = ({ active = true, width = "100%", index = 0 }: Props) => {
   let d = "M19 0L9.5 0L7.885 3.06L0 18L9.5 18L11.78 13.68L19 0Z";
   let viewbox = "0 0 19 18";
   let strokeWidth = 0;

@@ -1,25 +1,19 @@
 import { ReactNode, forwardRef, useCallback, useEffect, useState } from "react";
-import PostBody from "../../post-body";
+import PostBody from "../post-body";
 import ProgressBlock from "./ProgressBlock";
 import styles from "./BlogCard.module.css";
 import cs from "classnames";
 import BlogCardFrame from "./BlogCardFrame";
-import isVisible from "../../../lib/isVisible";
+import isVisible from "../../lib/isVisible";
 
 type Props = {
-  preview?: boolean;
   children?: ReactNode;
   showProgress?: boolean;
 };
 
-const BlogCard = ({
-  preview = false,
-  showProgress = false,
-  children,
-}: Props) => {
+const BlogCard = ({ showProgress = false, children }: Props) => {
   const [blogCard, setBlogCard] = useState<HTMLElement>(null);
   const [pageNode, setPageNode] = useState<HTMLElement>(null);
-  useState<NodeListOf<SVGElement>>(null);
   const [activeBlocks, setActiveBlocks] = useState(0);
   const TOTAL_READ_BLOCKS = 50;
 
@@ -47,12 +41,12 @@ const BlogCard = ({
       const activeblocks = currScrollPercentage / (100 / TOTAL_READ_BLOCKS);
       setActiveBlocks(activeblocks);
     } else {
-      disableScroll(blogCard);
+      // disableScroll(blogCard);
     }
   };
 
   const cardRef = useCallback((node: HTMLElement) => {
-    if (node) {
+    if (node && showProgress) {
       const page = document.querySelector("#page_container") as HTMLElement;
       setBlogCard(node);
       setPageNode(page);
@@ -73,9 +67,7 @@ const BlogCard = ({
     return () => pageNode.removeEventListener("scroll", handleScroll);
   }, [pageNode]);
   return (
-    <div
-      className={cs(styles["subcontainer"], "relative w-full h-full mb-[30px]")}
-    >
+    <div className={cs(styles["subcontainer"], "relative w-full h-full")}>
       <BlogCardFrame
         outerClasses={cs(
           "z-[2] lg:pb-[10px] sm:pb-0",

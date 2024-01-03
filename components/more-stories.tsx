@@ -1,18 +1,20 @@
-import PostPreview from './post-preview'
-import type Post from '../interfaces/post'
+import PostPreview from "./post-preview";
+import type Post from "../interfaces/post";
+import { TypeWriter } from "./utils/TypeWriter";
 
 type Props = {
-  posts: Post[]
-}
+  posts: Post[];
+  showHeader?:boolean;
+};
 
-const MoreStories = ({ posts }: Props) => {
+const MoreStories = ({ posts,showHeader=false}: Props) => {
   return (
-    <section className="relative w-full">
-      <h2 className="mb-8 text-5xl md:text-7xl font-bold tracking-tighter leading-tight">
-        More Stories
-      </h2>
+    <section className="relative w-full p-5 px-10">
+      {showHeader && <h2 className="mb-8 text-md md:text-xl font-bold tracking-tighter leading-tight">
+        <TypeWriter content="More Stories" />
+      </h2>}
       <div className="relative flex flex-col w-full gap-5">
-      {posts.map((post) => (
+        {posts.map((post) => (
           <PostPreview
             key={post.slug}
             title={post.title}
@@ -26,6 +28,6 @@ const MoreStories = ({ posts }: Props) => {
       </div>
     </section>
   );
-}
+};
 
-export default MoreStories
+export default MoreStories;
