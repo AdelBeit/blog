@@ -11,6 +11,11 @@
 
   --drop-shadow-offset-x: 8px;
   --drop-shadow-offset-y: 5px;
+  --static-drop-shadow-offset-x: 0;
+  --static-drop-shadow-offset-y: 0;
+  color:var(--cyber-amber);
+  --text-color: rgba(255, 218, 137, 0.774);
+  --shadow-color: var(--cyber-green);
 }
 
 .content {
@@ -19,7 +24,7 @@
 
 .card_graphic {
   clip-path: polygon(
-      var(--clip-path-point-1),
+    var(--clip-path-point-1),
     var(--clip-path-point-2),
     var(--clip-path-point-3),
     var(--clip-path-point-4),
@@ -30,13 +35,17 @@
 }
 
 .card_graphic_wrapper {
-  filter: drop-shadow(calc(-1 * var(--border-width)) 0 0 var(--cyber-green))
-    drop-shadow(0 calc(-1 * var(--border-width)) 0 var(--cyber-green))
-    drop-shadow(var(--border-width) 0 0 var(--cyber-green))
-    drop-shadow(0 var(--border-width) 0 var(--cyber-green))
+  filter: drop-shadow(calc(-1 * var(--border-width)) 0 0 var(--cyber-amber))
+    drop-shadow(0 calc(-1 * var(--border-width)) 0 var(--cyber-amber))
+    drop-shadow(var(--border-width) 0 0 var(--cyber-amber))
+    drop-shadow(0 var(--border-width) 0 var(--cyber-amber))
     drop-shadow(
       var(--drop-shadow-offset-x) var(--drop-shadow-offset-y) 0
-        var(--cyber-green)
+        var(--cyber-amber)
+    )
+    drop-shadow(
+      var(--static-drop-shadow-offset-x) var(--static-drop-shadow-offset-y) 0
+        var(--cyber-amber)
     );
   transition: filter 150ms ease-in-out, transform 150ms ease-in-out;
 }
@@ -80,12 +89,18 @@
 
 @media (pointer: fine), (pointer: none) {
   .container {
+    --static-drop-shadow-offset-x: -4px;
+    --static-drop-shadow-offset-y: -5px;
     --drop-shadow-offset-x: 0px;
     --drop-shadow-offset-y: 0px;
   }
   .container:hover {
+    --cyber-amber: var(--cyber-green);
+    --text-color: rgba(161, 255, 137, 0.774);
     --drop-shadow-offset-x: 8px;
     --drop-shadow-offset-y: 5px;
+    --static-drop-shadow-offset-x: 0;
+    --static-drop-shadow-offset-y: 0;
   }
 
   .card_graphic_wrapper {

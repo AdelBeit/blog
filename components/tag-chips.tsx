@@ -8,8 +8,7 @@ const TagChip = ({ name }: Props) => {
       <span className="_container neon_text rounded pulsate p-1">{name}</span>
       <style jsx>{`
         ._container {
-          --text-color: rgba(161, 255, 137, 0.774);
-          --shadow-color: var(--cyber-green);
+          --shadow-color: var(--cyber-amber);
           border: 1px solid var(--text-color);
           box-shadow: 0 0 3px var(--text-color), 
           0 0 3px var(--text-color),
