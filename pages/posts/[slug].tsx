@@ -30,6 +30,10 @@ export default function Post({ post, morePosts, preview }: Props) {
   }
   useEffect(() => {
     document.title = post.title;
+    const favicon = document.createElement('link');
+    favicon.rel = 'icon';
+    favicon.href = '/favicon.png';
+    document.head.appendChild(favicon);
   }, []);
 
   return (
