@@ -1,4 +1,4 @@
-'use-client'
+"use-client";
 export default class Typer {
   inputText: string;
   outputText: string = "";
@@ -36,7 +36,7 @@ export default class Typer {
   type() {
     if (this.typerCursor >= this.inputText.length) {
       this.stopTyping();
-      const spanElement = document.createElement('span');
+      const spanElement = document.createElement("span");
       this.cursorElement = spanElement;
       spanElement.textContent = this.cursorCharacter;
       this.element.appendChild(spanElement);
@@ -61,7 +61,7 @@ export default class Typer {
   }
 
   blinkingCursor() {
-    this.cursorElement.classList.toggle('opacity-0');
+    if (this.cursorElement) this.cursorElement.classList.toggle("opacity-0");
   }
 
   stop() {

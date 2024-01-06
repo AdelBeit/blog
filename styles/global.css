@@ -22,6 +22,8 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
+  background-color:var(--cyber-black);
+  color:var(--cyber-green);
 }
 
 #__next {

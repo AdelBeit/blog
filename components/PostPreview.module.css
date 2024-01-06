@@ -91,6 +91,8 @@
   .container {
     --static-drop-shadow-offset-x: -4px;
     --static-drop-shadow-offset-y: -5px;
+    --static-drop-shadow-offset-x: 0px;
+    --static-drop-shadow-offset-y: 0px;
     --drop-shadow-offset-x: 0px;
     --drop-shadow-offset-y: 0px;
   }
@@ -105,8 +107,8 @@
 
   .card_graphic_wrapper {
     transform: translate(
-      calc(-0.25 * var(--drop-shadow-offset-x)),
-      calc(-0.25 * var(--drop-shadow-offset-y))
+      calc(-0.5 * var(--drop-shadow-offset-x)),
+      calc(-0.5 * var(--drop-shadow-offset-y))
     );
   }
 }

@@ -3,9 +3,11 @@ import MoreStories from "../components/more-stories";
 import Layout from "../components/layout";
 import { getAllPosts } from "../lib/api";
 import Head from "next/head";
-import { CMS_NAME } from "../lib/constants";
+import { GITHUB_PATH, HOME_PATH } from "../lib/constants";
 import Post from "../interfaces/post";
 import { TypeWriter } from "../components/utils/TypeWriter";
+import Icon from "../components/Icon";
+import Github from "../components/svgs/Github";
 
 type Props = {
   allPosts: Post[];
@@ -16,12 +18,25 @@ export default function Index({ allPosts }: Props) {
     <>
       <Layout>
         <Head>
-          <title>{`Next.js Blog Example with ${CMS_NAME}`}</title>
+          <title>{`Adele's Blog`}</title>
         </Head>
-        <h2 className="pt-5 px-10 mb-2 text-md md:text-xl font-bold tracking-tighter leading-tight">
-          <TypeWriter content="Blog" />
-        </h2>
-        <MoreStories posts={allPosts} />
+        <div className="flex flex-col gap-5 mt-5 justify-between">
+          <div className="flex justify-between h-[45px]">
+            <a href={HOME_PATH}>
+              <h2 className="text-md md:text-xl font-bold tracking-tighter leading-tight">
+                <TypeWriter content="Blog" />
+              </h2>
+            </a>
+            <Icon link={GITHUB_PATH}>
+              <Github
+                innerclasses={
+                  "w-[40px] text-cyber-amber hover:text-cyber-green"
+                }
+              />
+            </Icon>
+          </div>
+          <MoreStories posts={allPosts} />
+        </div>
       </Layout>
     </>
   );

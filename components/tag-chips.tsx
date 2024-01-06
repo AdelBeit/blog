@@ -10,12 +10,6 @@ const TagChip = ({ name }: Props) => {
         ._container {
           --shadow-color: var(--cyber-amber);
           border: 1px solid var(--text-color);
-          box-shadow: 0 0 3px var(--text-color), 
-          0 0 3px var(--text-color),
-          0 0 2px var(--shadow-color), 
-          0 0 2px var(--shadow-color),
-          0 0 3px var(--shadow-color), 
-          inset 0 0 2px var(--shadow-color);
         }
         .neon_text {
           color: var(--text-color);
@@ -31,15 +25,19 @@ const TagChip = ({ name }: Props) => {
 
         @keyframes pulsate {
           100% {
-            text-shadow: 0 0 4px var(--text-color), 
-            0 0 6px var(--text-color),
-            0 0 8px var(--shadow-color);
+            text-shadow: 0 0 4px var(--text-color), 0 0 6px var(--text-color),
+              0 0 8px var(--shadow-color);
+            box-shadow: 0 0 3px var(--text-color), 0 0 2px var(--text-color),
+              0 0 2px var(--shadow-color), 0 0 3px var(--shadow-color),
+              0 0 2px var(--shadow-color), inset 0 0 3px var(--shadow-color);
           }
 
           0% {
-            text-shadow: 0 0 2px var(--text-color), 
-            0 0 4px var(--text-color),
-            0 0 6px var(--shadow-color);
+            text-shadow: 0 0 2px var(--text-color), 0 0 4px var(--text-color),
+              0 0 6px var(--shadow-color);
+            box-shadow: 0 0 3px var(--text-color), 0 0 3px var(--text-color),
+              0 0 2px var(--shadow-color), 0 0 2px var(--shadow-color),
+              0 0 3px var(--shadow-color), inset 0 0 2px var(--shadow-color);
           }
         }
       `}</style>

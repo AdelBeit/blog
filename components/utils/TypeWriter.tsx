@@ -1,27 +1,28 @@
 "use-client";
 import cs from "classnames";
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Typer from "../../lib/Typer";
 
 type cbOptionalArgs = { target?: HTMLSpanElement; typer?: Typer };
 
 interface Props {
   content: string;
-  extraStyles?: string;
+  classes?: string;
   cb?: (args?: cbOptionalArgs) => void;
 }
 
-export function TypeWriter({
-  content,
-  extraStyles = "",
-  cb = ({}) => {},
-}: Props) {
-  const ref = useRef<null | HTMLSpanElement>(null);
+export function TypeWriter({ content, classes = "", cb = ({}) => {} }: Props) {
+  const [contentNode, setContentNode] = useState<HTMLSpanElement>(null);
 
+  const contentRef = useCallback((node: HTMLElement) => {
+    if (node) {
+      setContentNode(node);
+    }
+  }, []);
   useEffect(() => {
-    if (!ref.current) return;
+    if (!contentNode) return;
 
-    const target: HTMLSpanElement = ref.current;
+    const target: HTMLSpanElement = contentNode;
     const typer = new Typer(target, content);
     let startDelayTimeout: number;
     startDelayTimeout = window.setTimeout(() => {
@@ -32,12 +33,17 @@ export function TypeWriter({
     return () => {
       typer.stop();
     };
-  }, [ref.current]);
+  }, [contentNode]);
 
   return (
-    <div className={cs('relative', extraStyles)}>
-      <span ref={ref} className={cs("absolute z-[1] left-0 top-0", cs(extraStyles))}></span>
-      <span className="_temp text-cyber-black select-none" aria-hidden>{content}.</span>
+    <div className={cs("relative", classes)}>
+      <span
+        ref={contentRef}
+        className={cs("absolute z-[1] left-0 top-0", cs(classes))}
+      ></span>
+      <span className="_temp text-cyber-black select-none" aria-hidden>
+        {content}.
+      </span>
     </div>
   );
 }

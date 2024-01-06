@@ -23,7 +23,7 @@ const HeroPost = ({
   slug,
 }: Props) => {
   return (
-    <section className="relative text-cyber-green w-full bg-cyber-black p-[10px] sm:pr-[30px] pr-[15px]">
+    <section className="relative w-full p-[10px] sm:pr-[30px] pr-[15px]">
       <h3 className="mb-4 text-4xl lg:text-5xl leading-tight">
         <Link
           as={`/posts/${slug}`}

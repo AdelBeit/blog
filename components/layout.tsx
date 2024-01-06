@@ -11,8 +11,13 @@ const Layout = ({ preview, children }: Props) => {
   return (
     <>
       <Meta />
-      <div className="min-h-screen relative bg-cyber-black text-cyber-green w-full h-full" id="_layout">
-        <main className="w-full h-full">{children}</main>
+      <div
+        className="min-h-screen relative bg-cyber-black text-cyber-green flex flex-col justify-between px-10 gap-5 pb-2"
+        id="_layout"
+      >
+          {children}
+        {/* <main className="flex flex-col gap-5 mt-5 justify-between">
+        </main> */}
         <Footer />
       </div>
     </>

@@ -47,7 +47,7 @@ const BlogCard = ({ showProgress = false, children }: Props) => {
 
   const cardRef = useCallback((node: HTMLElement) => {
     if (node && showProgress) {
-      const page = document.querySelector("#page_container") as HTMLElement;
+      const page = document.querySelector("#_page_container") as HTMLElement;
       setBlogCard(node);
       setPageNode(page);
       const card = page.querySelector(".overflow-y-scroll") as HTMLElement;
