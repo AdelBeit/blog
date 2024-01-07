@@ -16,7 +16,7 @@ type Props = {
   excerpt: string;
   author: Author;
   slug: string;
-  tags?:string[];
+  tags?:string;
 };
 
 const PostPreview = ({
@@ -26,7 +26,7 @@ const PostPreview = ({
   excerpt,
   author,
   slug,
-  tags=['galaxy','planet','world'],
+  tags='galaxy, planet, world',
 }: Props) => {
   return (
     <div
@@ -49,7 +49,7 @@ const PostPreview = ({
             {title}
           </span>
           <span className="flex flex-wrap gap-2 text-[0.5rem] md:text-[0.825rem] sm:text-sm sm:gap-4 row-start-2 row-end-3 justify-self-start align-self-end max-w-full">
-            {tags.map((t) => (
+            {tags.split(',').map((t) => (
               <TagChip name={t}></TagChip>
             ))}
           </span>

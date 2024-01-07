@@ -23,6 +23,7 @@ const MoreStories = ({ posts,showHeader=false}: Props) => {
             author={post.author}
             slug={post.slug}
             excerpt={post.excerpt}
+            tags={post.tags}
           />
         ))}
         {posts.map((post) => (
