@@ -1,5 +1,5 @@
 ---
-title: "Designing With Cyberpunk"
+title: "Designing with Cyberpunk"
 excerpt: ""
 coverImage: ""
 date: "2024-01-06T17:37:49.200Z"
