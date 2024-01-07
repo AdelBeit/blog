@@ -11,10 +11,9 @@
 }
 
 .markdown a{
-  @apply underline
+  @apply underline;
 }
 
 .markdown img{
-  @apply my-2
+  @apply my-2;
 }
-
