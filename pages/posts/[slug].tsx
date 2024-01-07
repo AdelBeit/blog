@@ -30,9 +30,9 @@ export default function Post({ post, morePosts, preview }: Props) {
   }
   useEffect(() => {
     document.title = post.title;
-    const favicon = document.createElement('link');
-    favicon.rel = 'icon';
-    favicon.href = '/favicon.png';
+    const favicon = document.createElement("link");
+    favicon.rel = "icon";
+    favicon.href = "/favicon.png";
     document.head.appendChild(favicon);
   }, []);
 
@@ -42,23 +42,26 @@ export default function Post({ post, morePosts, preview }: Props) {
       id="_page_container"
     >
       <BlogCard showProgress={true}>
-            <a href={HOME_PATH} className="text-cyber-amber hover:underline py-2 block">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6 inline-block mr-2"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"
-                />
-              </svg>
-              Read more
-            </a>
+        <a
+          href={HOME_PATH}
+          className="text-cyber-amber hover:underline py-2 block"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6 inline-block mr-2"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"
+            />
+          </svg>
+          Read more
+        </a>
         <PostHeader
           title={post.title}
           coverImage={post.coverImage}
@@ -66,6 +69,26 @@ export default function Post({ post, morePosts, preview }: Props) {
           author={post.author}
         />
         <PostBody content={post.content} />
+        <a
+          href={HOME_PATH}
+          className="text-cyber-amber hover:underline py-2 block"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6 inline-block mr-2"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"
+            />
+          </svg>
+          Read more
+        </a>
       </BlogCard>
     </div>
   );
