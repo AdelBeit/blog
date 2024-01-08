@@ -14,7 +14,7 @@ tags:
 
 ## Motivation
 
-Creativity is self expression and self expression is difficult for overly analytical minds. Software Engineers are as analytical as you can get. As such, producing images from ideas is very challenging for me. But none of that will stop me from trying, to create inspiring UIs that are accessible, responsive, and functional!
+Creativity is self expression and self expression is difficult for overly analytical minds. Software engineers are as analytical as you can get. As a software engineer myself, I have the hardest time producing images from the ideas in my mind. But none of that has stopped me from trying.
 
 ### Vision 
 
