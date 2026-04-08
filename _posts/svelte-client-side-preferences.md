@@ -1,5 +1,5 @@
 ---
-title: "How to persist client-side preferences on the client in Svelte (w/o DB)"
+title: "Persist client-side preferences with Svelte (without DB)"
 excerpt: ""
 coverImage: ""
 date: "2024-04-23T10:37:49.200Z"
