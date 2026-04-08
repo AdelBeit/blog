@@ -49,9 +49,10 @@ const PostPreview = ({
             {title}
           </span>
           <span className="flex flex-wrap gap-2 text-[0.5rem] md:text-[0.825rem] sm:text-sm sm:gap-4 row-start-2 row-end-3 justify-self-start align-self-end max-w-full">
-            {tags.split(',').map((t) => (
-              <TagChip name={t}></TagChip>
-            ))}
+            {tags.split(",").map((t, i) => {
+              const tag = t.trim();
+              return <TagChip key={`${tag}-${i}`} name={tag} />;
+            })}
           </span>
           <span className="row-start-2 row-end-3 text-[0.7rem] md:text-sm lg:text-md place-self-end pr-2">
             <DateFormatter dateString={date} />
